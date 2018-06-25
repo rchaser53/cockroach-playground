@@ -1,0 +1,23 @@
+version: '3'
+services:
+  roachdb:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+
+    container_name: roachdb
+    volumes:
+      - ./volumes/roachdb/0:/cockroach/cockroach-data:rw
+    environment:
+      TZ: JST-9
+    sysctls:
+      net.core.somaxconn: 8192
+    expose:
+      - "8080"
+      - "26257"
+    ports:
+      - "8080:8080"
+      - "26257:26257"
+    privileged: true
+    restart: "no"
+    command: start --logtostderr --insecure
