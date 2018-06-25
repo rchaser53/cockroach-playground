@@ -1,0 +1,1 @@
+SET CLUSTER SETTING sql.trace.log_statement_execute = true;
