@@ -1,0 +1,1 @@
+psql -h localhost -U root -d test_development -p 26257 -c "SET CLUSTER SETTING sql.trace.log_statement_execute = false;"
